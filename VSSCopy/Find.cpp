@@ -95,17 +95,24 @@ void Find(wchar_t* argument) {
 			if (((STATUS_NO_MORE_ENTRIES == 0 || (result ==0))) && num_of_vss == 0)
 			{
 				printf("Can't find VSS!\n");
+				CloseHandle(dirobject);
+				delete[] buffer;
+				delete[] destination;
+				delete[] hive;
 				exit(0);
 
 			}
 			else if (STATUS_NO_MORE_ENTRIES == 0 || (result == 0)) {
+				CloseHandle(dirobject);
+
+				delete[] buffer;
+				delete[] destination;
+				delete[] hive;
 				exit(0);
 
 			}
 		}
-		delete[] buffer;
-		delete[] destination;
-		delete[] hive;
+		
 
 	}
 }
